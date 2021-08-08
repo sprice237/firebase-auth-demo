@@ -1,0 +1,15 @@
+{
+  "name": "@sprice237/firebase-auth-demo",
+  "version": "0.1.0",
+  "author": "Sean Price <sean@seanprice.io>",
+  "license": "MPL2",
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "engines": {
+    "node": "14"
+  }
+}

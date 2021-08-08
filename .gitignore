@@ -1,0 +1,48 @@
+# compiled output
+**/dist
+**/tsconfig.tsbuildinfo
+
+# dependencies
+**/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+.vscode/*
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+lerna-debug.log
+build-storybook.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Dev Notes
+notes.md
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
