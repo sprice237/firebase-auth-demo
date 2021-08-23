@@ -1,0 +1,47 @@
+{
+  "name": "@sprice237/firebase-auth-demo-gql",
+  "packageManager": "yarn@3.0.0",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "graphql"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:gql": "graphql-codegen",
+    "clean": "rimraf dist",
+    "lint": "eslint --ext=ts,js,tsx,jsx src"
+  },
+  "dependencies": {
+    "@apollo/client": "3.4.8",
+    "@graphql-tools/graphql-file-loader": "7.0.5",
+    "@graphql-tools/load": "7.1.8",
+    "graphql": "15.5.1",
+    "graphql-config": "4.0.1",
+    "graphql-tag": "2.12.5",
+    "react": "17.0.2",
+    "tslib": "2.3.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/introspection": "2.1.0",
+    "@graphql-codegen/schema-ast": "2.1.0",
+    "@graphql-codegen/typescript": "2.1.0",
+    "@graphql-codegen/typescript-operations": "2.1.0",
+    "@graphql-codegen/typescript-react-apollo": "3.1.0",
+    "@sprice237/eslint-config-firebase-auth-demo": "workspace:*",
+    "@types/node": "16.7.1",
+    "@typescript-eslint/eslint-plugin": "4.29.2",
+    "@typescript-eslint/parser": "4.29.2",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-graphql": "4.0.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "typescript": "4.3.5"
+  }
+}
