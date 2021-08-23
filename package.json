@@ -9,13 +9,13 @@
       "packages/*"
     ]
   },
-  "engines": {
-    "node": "14"
-  },
   "scripts": {
     "build": "yarn workspaces foreach -vpt run build",
     "clean": "yarn workspaces foreach -vp run clean",
     "lint": "yarn workspaces foreach -vp run lint"
+  },
+  "engines": {
+    "node": "14"
   },
   "devDependencies": {
     "typescript": "4.3.5"
