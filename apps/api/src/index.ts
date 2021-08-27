@@ -1,11 +1,3 @@
-import express from 'express';
+import { startServer } from './server';
 
-const app = express();
-
-app.get('/', (_req, res) => {
-  res.json({ message: 'hello' });
-});
-
-app.listen(process.env['PORT'] ?? 8080, () => {
-  console.log('server started');
-});
+startServer().then(null, (e) => console.error(e));
