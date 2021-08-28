@@ -1,13 +1,17 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CssBaseline } from '@material-ui/core';
 import { AppThemeProvider } from '$theme';
+import { Cmp } from '$types';
+import { AppRouter } from './routes/AppRouter';
 
-export const App: React.FC = () => {
+export const App: Cmp = () => {
   return (
-    <AppThemeProvider>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-    </AppThemeProvider>
+    <Router>
+      <AppThemeProvider>
+        <CssBaseline />
+        <AppRouter />
+      </AppThemeProvider>
+    </Router>
   );
 };
