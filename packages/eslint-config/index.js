@@ -37,6 +37,12 @@ module.exports = {
       "error",
       "unix"
     ],
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: ['../*']
+      }
+    ],
     "quotes": [
       "error",
       "single"

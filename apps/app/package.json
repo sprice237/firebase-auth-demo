@@ -1,0 +1,47 @@
+{
+  "name": "@sprice237/firebase-auth-demo-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "$cmp": "link:./src/components",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "typescript": "4.3.5"
+  },
+  "scripts": {
+    "start": "PORT=3000 react-scripts start",
+    "build": "react-scripts build",
+    "clean": "rimraf build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext=tsx,ts,js src"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@sprice237/eslint-config-firebase-auth-demo": "workspace:*",
+    "@types/node": "16.7.4",
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.3.2",
+    "raw-loader": "4.0.2",
+    "react-scripts": "4.0.3",
+    "rimraf": "3.0.2",
+    "webpack": "5.51.1"
+  }
+}
