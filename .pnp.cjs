@@ -65,6 +65,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "discardFromLookup": true
         }]
       ]],
+      ["$theme", [
+        ["link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp", {
+          "packageLocation": "./apps/app/src/theme/",
+          "packageDependencies": [
+            ["$theme", "link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"]
+          ],
+          "linkType": "SOFT",
+          "discardFromLookup": true
+        }]
+      ]],
+      ["$types", [
+        ["link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp", {
+          "packageLocation": "./apps/app/src/types/",
+          "packageDependencies": [
+            ["$types", "link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"]
+          ],
+          "linkType": "SOFT",
+          "discardFromLookup": true
+        }]
+      ]],
       ["@apollo/client", [
         ["npm:3.4.8", {
           "packageLocation": "./.yarn/cache/@apollo-client-npm-3.4.8-69b6059fd9-07e4f32545.zip/node_modules/@apollo/client/",
@@ -7241,6 +7261,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@sprice237/firebase-auth-demo-app", "workspace:apps/app"],
             ["$cmp", "link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
+            ["$theme", "link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
+            ["$types", "link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["@material-ui/core", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.3"],
             ["@material-ui/icons", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.11.2"],
             ["@material-ui/system", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.1"],

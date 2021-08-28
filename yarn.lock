@@ -11,6 +11,18 @@ __metadata:
   languageName: node
   linkType: soft
 
+"$theme@link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp":
+  version: 0.0.0-use.local
+  resolution: "$theme@link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"
+  languageName: node
+  linkType: soft
+
+"$types@link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp":
+  version: 0.0.0-use.local
+  resolution: "$types@link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"
+  languageName: node
+  linkType: soft
+
 "@apollo/client@npm:3.4.8":
   version: 3.4.8
   resolution: "@apollo/client@npm:3.4.8"
@@ -3537,6 +3549,8 @@ __metadata:
   resolution: "@sprice237/firebase-auth-demo-app@workspace:apps/app"
   dependencies:
     $cmp: "link:./src/components"
+    $theme: "link:./src/theme"
+    $types: "link:./src/types"
     "@material-ui/core": 4.12.3
     "@material-ui/icons": 4.11.2
     "@material-ui/system": 4.12.1
