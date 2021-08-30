@@ -2,8 +2,9 @@ import React from 'react';
 import { Redirect, Switch } from 'react-router-dom';
 import { Cmp, RouteCmp } from '$types';
 import { HomeRoute } from './HomeRoute';
+import { LoginRoute } from './LoginRoute';
 
-const routes: RouteCmp[] = [HomeRoute];
+const routes: RouteCmp[] = [LoginRoute, HomeRoute];
 
 export const AppRouter: Cmp = () => {
   return (
