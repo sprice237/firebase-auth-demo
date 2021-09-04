@@ -6739,6 +6739,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@material-ui/lab", [
+        ["npm:4.0.0-alpha.60", {
+          "packageLocation": "./.yarn/cache/@material-ui-lab-npm-4.0.0-alpha.60-f4addfaf93-8da8bcd636.zip/node_modules/@material-ui/lab/",
+          "packageDependencies": [
+            ["@material-ui/lab", "npm:4.0.0-alpha.60"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.0-alpha.60", {
+          "packageLocation": "./.yarn/__virtual__/@material-ui-lab-virtual-067330f30d/0/cache/@material-ui-lab-npm-4.0.0-alpha.60-f4addfaf93-8da8bcd636.zip/node_modules/@material-ui/lab/",
+          "packageDependencies": [
+            ["@material-ui/lab", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.0-alpha.60"],
+            ["@babel/runtime", "npm:7.15.3"],
+            ["@material-ui/core", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.3"],
+            ["@material-ui/utils", "virtual:6e819050d35dcb7b0d611c29ed72e547820b7e2c46573242ca08ff3a6215a539ba41160947547c310e34282f1efb22a5cdf95b14d22d73846ead0a6204b87364#npm:4.11.2"],
+            ["@types/material-ui__core", null],
+            ["@types/react", "npm:17.0.19"],
+            ["@types/react-dom", "npm:17.0.9"],
+            ["clsx", "npm:1.1.1"],
+            ["prop-types", "npm:15.7.2"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:17.0.2"],
+            ["react-is", "npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@material-ui/core",
+            "@types/material-ui__core",
+            "@types/react-dom",
+            "@types/react",
+            "react-dom",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@material-ui/styles", [
         ["npm:4.11.4", {
           "packageLocation": "./.yarn/cache/@material-ui-styles-npm-4.11.4-24950251c4-ef9abc486c.zip/node_modules/@material-ui/styles/",
@@ -7265,6 +7300,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["$types", "link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["@material-ui/core", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.3"],
             ["@material-ui/icons", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.11.2"],
+            ["@material-ui/lab", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.0-alpha.60"],
             ["@material-ui/system", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.1"],
             ["@sprice237/eslint-config-firebase-auth-demo", "workspace:packages/eslint-config"],
             ["@types/node", "npm:16.7.4"],
