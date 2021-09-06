@@ -85,6 +85,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "discardFromLookup": true
         }]
       ]],
+      ["$utils", [
+        ["link:./src/utils::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp", {
+          "packageLocation": "./apps/app/src/utils/",
+          "packageDependencies": [
+            ["$utils", "link:./src/utils::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"]
+          ],
+          "linkType": "SOFT",
+          "discardFromLookup": true
+        }]
+      ]],
       ["@apollo/client", [
         ["npm:3.4.8", {
           "packageLocation": "./.yarn/cache/@apollo-client-npm-3.4.8-69b6059fd9-07e4f32545.zip/node_modules/@apollo/client/",
@@ -8155,6 +8165,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["$cmp", "link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["$theme", "link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["$types", "link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
+            ["$utils", "link:./src/utils::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["@material-ui/core", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.12.3"],
             ["@material-ui/icons", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.11.2"],
             ["@material-ui/lab", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.0-alpha.60"],
@@ -8182,7 +8193,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["styled-components", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:5.3.1"],
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
-            ["webpack", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:5.51.1"]
+            ["webpack", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:5.51.1"],
+            ["yup", "npm:0.32.9"]
           ],
           "linkType": "SOFT",
         }]
@@ -8719,6 +8731,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/keyv", "npm:3.1.2"],
             ["@types/node", "npm:16.4.13"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.172", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.172-e52063c461-5fc51ea40d.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.172"]
           ],
           "linkType": "HARD",
         }]
@@ -20427,6 +20448,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["nanoclone", [
+        ["npm:0.2.1", {
+          "packageLocation": "./.yarn/cache/nanoclone-npm-0.2.1-972ee958a0-96b2954e22.zip/node_modules/nanoclone/",
+          "packageDependencies": [
+            ["nanoclone", "npm:0.2.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["nanoid", [
         ["npm:3.1.25", {
           "packageLocation": "./.yarn/cache/nanoid-npm-3.1.25-c8f62ce160-e2353828c7.zip/node_modules/nanoid/",
@@ -22764,6 +22794,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["loose-envify", "npm:1.4.0"],
             ["object-assign", "npm:4.1.1"],
             ["react-is", "npm:16.13.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["property-expr", [
+        ["npm:2.0.4", {
+          "packageLocation": "./.yarn/cache/property-expr-npm-2.0.4-dffd410058-7ac142e189.zip/node_modules/property-expr/",
+          "packageDependencies": [
+            ["property-expr", "npm:2.0.4"]
           ],
           "linkType": "HARD",
         }]
@@ -26013,6 +26052,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["toposort", [
+        ["npm:2.0.2", {
+          "packageLocation": "./.yarn/cache/toposort-npm-2.0.2-d472329c7d-d64c74b570.zip/node_modules/toposort/",
+          "packageDependencies": [
+            ["toposort", "npm:2.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["tough-cookie", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/tough-cookie-npm-4.0.0-7c5f3086af-0891b37eb7.zip/node_modules/tough-cookie/",
@@ -27989,6 +28037,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",
           "packageDependencies": [
             ["yocto-queue", "npm:0.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["yup", [
+        ["npm:0.32.9", {
+          "packageLocation": "./.yarn/cache/yup-npm-0.32.9-d884fe5f43-3f33850913.zip/node_modules/yup/",
+          "packageDependencies": [
+            ["yup", "npm:0.32.9"],
+            ["@babel/runtime", "npm:7.15.4"],
+            ["@types/lodash", "npm:4.14.172"],
+            ["lodash", "npm:4.17.21"],
+            ["lodash-es", "npm:4.17.21"],
+            ["nanoclone", "npm:0.2.1"],
+            ["property-expr", "npm:2.0.4"],
+            ["toposort", "npm:2.0.2"]
           ],
           "linkType": "HARD",
         }]
