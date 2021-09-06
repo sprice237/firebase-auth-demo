@@ -12,3 +12,11 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(firebaseApp);
+
+export enum FirebaseErrorCodes {
+  AuthEmailAlreadyInUse = 'auth/email-already-in-use',
+}
+
+export const FirebaseErrorMessages = {
+  [FirebaseErrorCodes.AuthEmailAlreadyInUse]: 'Email address already in use',
+};

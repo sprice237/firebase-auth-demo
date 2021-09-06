@@ -6,6 +6,11 @@ import { Cmp } from '$types';
 import { FormikTextField } from '$cmp/form/TextField';
 import { AuthWrapper } from '$cmp/styling/AuthWrapper';
 import { FormikErrorList } from '$cmp/utils/FormikErrorList';
+import { firebaseAuth, FirebaseErrorCodes, FirebaseErrorMessages } from '$utils/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { ErrorList } from '$cmp/utils/ErrorList';
+import { LoadingModal } from '$cmp/utils/LoadingModal';
 
 type RegistrationForm = {
   email: string;
@@ -24,12 +29,34 @@ const RegistrationSchema = Yup.object().shape({
 });
 
 export const RegistrationForm: Cmp = () => {
-  const handleSubmit = (values: RegistrationForm) => {
-    console.log(values);
+  const [errors, setErrors] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (values: RegistrationForm) => {
+    setIsLoading(true);
+    try {
+      setErrors([]);
+      const userCredential = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        values.email,
+        values.password
+      );
+      console.log(userCredential);
+    } catch (error) {
+      if (error.code === FirebaseErrorCodes.AuthEmailAlreadyInUse) {
+        setErrors([FirebaseErrorMessages[FirebaseErrorCodes.AuthEmailAlreadyInUse]]);
+      } else {
+        setErrors(['An unknown error has occurred']);
+        throw error;
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <AuthWrapper>
+      {isLoading && <LoadingModal />}
       <Typography component="h1" variant="h4" align="center" gutterBottom>
         Demo
       </Typography>
@@ -45,6 +72,7 @@ export const RegistrationForm: Cmp = () => {
       >
         <Form noValidate>
           <FormikErrorList />
+          <ErrorList errors={errors} />
           <FormikTextField type="email" name="email" label="Email Address" fullWidth />
           <FormikTextField type="password" name="password" label="Password" fullWidth />
           <FormikTextField
