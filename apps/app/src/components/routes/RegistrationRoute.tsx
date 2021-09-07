@@ -11,3 +11,4 @@ RegistrationRoute.path = '/register';
 RegistrationRoute.routes = [
   <Route exact path={RegistrationRoute.path} component={RegistrationRoute} />,
 ];
+RegistrationRoute.allowUnauthenticated = true;

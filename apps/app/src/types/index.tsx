@@ -21,4 +21,6 @@ export type CmpWithChildren<TProps = {}> = Cmp<TProps & { children?: ReactNode |
 export interface RouteCmp<TProps = {}> extends Cmp<TProps> {
   path: string;
   routes: JSX.Element[];
+  allowAuthenticated?: boolean;
+  allowUnauthenticated?: boolean;
 }

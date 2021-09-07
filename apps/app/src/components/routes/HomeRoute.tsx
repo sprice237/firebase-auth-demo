@@ -1,10 +1,31 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 import { RouteCmp } from '$types';
+import { firebaseAuth, useCurrentUser } from '$utils/firebase';
+import { Button } from '@material-ui/core';
 
 export const HomeRoute: RouteCmp = () => {
-  return <p>Home</p>;
+  const [user] = useCurrentUser();
+
+  const handleLogOut = () => {
+    signOut(firebaseAuth);
+  };
+
+  if (!user) {
+    return null;
+  }
+
+  return (
+    <>
+      <p>Welcome, {user.email}</p>
+      <Button variant="contained" color="primary" onClick={handleLogOut}>
+        Log out
+      </Button>
+    </>
+  );
 };
 
 HomeRoute.path = '/home';
 HomeRoute.routes = [<Route exact path={HomeRoute.path} component={HomeRoute} />];
+HomeRoute.allowAuthenticated = true;
