@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { initializeApp } from 'firebase/app';
+import { FirebaseError, initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -16,6 +16,7 @@ export const firebaseAuth = getAuth(firebaseApp);
 
 export enum FirebaseErrorCodes {
   AuthEmailAlreadyInUse = 'auth/email-already-in-use',
+  AuthPopupClosedByUser = 'auth/popup-closed-by-user',
   AuthTooManyRequests = 'auth/too-many-requests',
   AuthUserNotFound = 'auth/user-not-found',
   AuthWrongPassword = 'auth/wrong-password',
@@ -23,10 +24,15 @@ export enum FirebaseErrorCodes {
 
 export const FirebaseErrorMessages = {
   [FirebaseErrorCodes.AuthEmailAlreadyInUse]: 'Email address already in use',
+  [FirebaseErrorCodes.AuthPopupClosedByUser]:
+    'The authentication window was closed, please try again',
   [FirebaseErrorCodes.AuthTooManyRequests]: 'Too many attempts, please try again later',
   [FirebaseErrorCodes.AuthUserNotFound]: 'User was not found',
   [FirebaseErrorCodes.AuthWrongPassword]: 'Incorrect password',
 };
+
+export const isFirebaseError = (error: Error): error is FirebaseError =>
+  error.name === 'FirebaseError';
 
 export const useCurrentUser = (): [User | null, boolean] => {
   const [user, setUser] = useState<User | null>(null);

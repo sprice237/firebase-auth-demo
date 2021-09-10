@@ -9,7 +9,14 @@ import { AuthWrapper } from '$cmp/styling/AuthWrapper';
 import { ErrorList } from '$cmp/utils/ErrorList';
 import { FormikErrorList } from '$cmp/utils/FormikErrorList';
 import { LoadingModal } from '$cmp/utils/LoadingModal';
-import { firebaseAuth, FirebaseErrorCodes, FirebaseErrorMessages } from '$utils/firebase';
+import {
+  firebaseAuth,
+  FirebaseErrorCodes,
+  FirebaseErrorMessages,
+  isFirebaseError,
+} from '$utils/firebase';
+import { SignInWithGoogleButton } from './SignInWithGoogleButton';
+import { AuthButtonContainer } from './AuthButtonContainer';
 
 type LoginForm = {
   email: string;
@@ -33,13 +40,23 @@ export const Login: Cmp = () => {
       setErrors([]);
       await signInWithEmailAndPassword(firebaseAuth, values.email, values.password);
     } catch (error) {
+      setIsLoading(false);
       if (Object.keys(FirebaseErrorMessages).includes(error.code)) {
         setErrors([FirebaseErrorMessages[error.code as FirebaseErrorCodes]]);
       } else {
         setErrors(['An unknown error has occurred']);
         throw error;
       }
-      setIsLoading(false);
+    }
+  };
+
+  const handleSignInWithGoogleError = (error: Error) => {
+    setIsLoading(false);
+    if (isFirebaseError(error) && Object.keys(FirebaseErrorMessages).includes(error.code)) {
+      setErrors([FirebaseErrorMessages[error.code as FirebaseErrorCodes]]);
+    } else {
+      setErrors(['An unknown error has occurred']);
+      throw error;
     }
   };
 
@@ -64,9 +81,15 @@ export const Login: Cmp = () => {
           <ErrorList errors={errors} />
           <FormikTextField type="email" name="email" label="Email Address" fullWidth />
           <FormikTextField type="password" name="password" label="Password" fullWidth />
-          <Button type="submit" fullWidth variant="contained" color="primary">
-            Sign in
-          </Button>
+          <AuthButtonContainer>
+            <Button type="submit" fullWidth variant="contained" color="primary">
+              Sign in
+            </Button>
+            <SignInWithGoogleButton
+              onClick={() => setIsLoading(true)}
+              onError={handleSignInWithGoogleError}
+            />
+          </AuthButtonContainer>
         </Form>
       </Formik>
     </AuthWrapper>

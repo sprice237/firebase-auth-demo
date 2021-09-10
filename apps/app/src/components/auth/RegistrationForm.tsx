@@ -6,11 +6,18 @@ import { Cmp } from '$types';
 import { FormikTextField } from '$cmp/form/TextField';
 import { AuthWrapper } from '$cmp/styling/AuthWrapper';
 import { FormikErrorList } from '$cmp/utils/FormikErrorList';
-import { firebaseAuth, FirebaseErrorCodes, FirebaseErrorMessages } from '$utils/firebase';
+import {
+  firebaseAuth,
+  FirebaseErrorCodes,
+  FirebaseErrorMessages,
+  isFirebaseError,
+} from '$utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { ErrorList } from '$cmp/utils/ErrorList';
 import { LoadingModal } from '$cmp/utils/LoadingModal';
+import { AuthButtonContainer } from './AuthButtonContainer';
+import { SignInWithGoogleButton } from './SignInWithGoogleButton';
 
 type RegistrationForm = {
   email: string;
@@ -43,14 +50,23 @@ export const RegistrationForm: Cmp = () => {
       );
       console.log(userCredential);
     } catch (error) {
+      setIsLoading(false);
       if (error.code === FirebaseErrorCodes.AuthEmailAlreadyInUse) {
         setErrors([FirebaseErrorMessages[FirebaseErrorCodes.AuthEmailAlreadyInUse]]);
       } else {
         setErrors(['An unknown error has occurred']);
         throw error;
       }
-    } finally {
-      setIsLoading(false);
+    }
+  };
+
+  const handleSignInWithGoogleError = (error: Error) => {
+    setIsLoading(false);
+    if (isFirebaseError(error) && Object.keys(FirebaseErrorMessages).includes(error.code)) {
+      setErrors([FirebaseErrorMessages[error.code as FirebaseErrorCodes]]);
+    } else {
+      setErrors(['An unknown error has occurred']);
+      throw error;
     }
   };
 
@@ -81,9 +97,15 @@ export const RegistrationForm: Cmp = () => {
             label="Confirm password"
             fullWidth
           />
-          <Button type="submit" fullWidth variant="contained" color="primary">
-            Register
-          </Button>
+          <AuthButtonContainer>
+            <Button type="submit" fullWidth variant="contained" color="primary">
+              Register
+            </Button>
+            <SignInWithGoogleButton
+              onClick={() => setIsLoading(true)}
+              onError={handleSignInWithGoogleError}
+            />
+          </AuthButtonContainer>
         </Form>
       </Formik>
     </AuthWrapper>
