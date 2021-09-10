@@ -55,6 +55,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["$assets", [
+        ["link:./src/assets::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp", {
+          "packageLocation": "./apps/app/src/assets/",
+          "packageDependencies": [
+            ["$assets", "link:./src/assets::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"]
+          ],
+          "linkType": "SOFT",
+          "discardFromLookup": true
+        }]
+      ]],
       ["$cmp", [
         ["link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp", {
           "packageLocation": "./apps/app/src/components/",
@@ -8162,6 +8172,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/app/",
           "packageDependencies": [
             ["@sprice237/firebase-auth-demo-app", "workspace:apps/app"],
+            ["$assets", "link:./src/assets::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["$cmp", "link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["$theme", "link:./src/theme::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],
             ["$types", "link:./src/types::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"],

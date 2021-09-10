@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "$assets": "link:./src/assets",
     "$cmp": "link:./src/components",
     "$theme": "link:./src/theme",
     "$types": "link:./src/types",

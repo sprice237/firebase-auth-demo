@@ -5,6 +5,12 @@ __metadata:
   version: 4
   cacheKey: 8
 
+"$assets@link:./src/assets::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp":
+  version: 0.0.0-use.local
+  resolution: "$assets@link:./src/assets::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"
+  languageName: node
+  linkType: soft
+
 "$cmp@link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp":
   version: 0.0.0-use.local
   resolution: "$cmp@link:./src/components::locator=%40sprice237%2Ffirebase-auth-demo-app%40workspace%3Aapps%2Fapp"
@@ -4089,6 +4095,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sprice237/firebase-auth-demo-app@workspace:apps/app"
   dependencies:
+    $assets: "link:./src/assets"
     $cmp: "link:./src/components"
     $theme: "link:./src/theme"
     $types: "link:./src/types"

@@ -17,6 +17,7 @@ import {
 } from '$utils/firebase';
 import { SignInWithGoogleButton } from './SignInWithGoogleButton';
 import { AuthButtonContainer } from './AuthButtonContainer';
+import { SignInWithMicrosoftButton } from './SignInWithMicrosoftButton';
 
 type LoginForm = {
   email: string;
@@ -86,6 +87,10 @@ export const Login: Cmp = () => {
               Sign in
             </Button>
             <SignInWithGoogleButton
+              onClick={() => setIsLoading(true)}
+              onError={handleSignInWithGoogleError}
+            />
+            <SignInWithMicrosoftButton
               onClick={() => setIsLoading(true)}
               onError={handleSignInWithGoogleError}
             />

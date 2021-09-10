@@ -5,7 +5,7 @@ import { firebaseAuth } from '$utils/firebase';
 
 const ButtonContainer = styled.div`
   display: flex;
-  width: 190px;
+  width: 225px;
   height: 42px;
   border: 0;
   padding: 0;
@@ -15,7 +15,7 @@ const ButtonContainer = styled.div`
   cursor: pointer;
 `;
 
-const GoogleIconContainer = styled.div`
+const IconContainer = styled.div`
   margin-top: 1px;
   margin-left: 1px;
   width: 40px;
@@ -24,7 +24,7 @@ const GoogleIconContainer = styled.div`
   background-color: white;
 `;
 
-const GoogleIconWrapper = styled.div`
+const IconWrapper = styled.div`
   margin-top: 11px;
   margin-left: 11px;
   width: 18px;
@@ -66,11 +66,11 @@ export const SignInWithGoogleButton = React.forwardRef<HTMLDivElement, SignInWit
 
     return (
       <ButtonContainer onClick={handleSignInWithGoogle} ref={ref}>
-        <GoogleIconContainer>
-          <GoogleIconWrapper>
+        <IconContainer>
+          <IconWrapper>
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
-          </GoogleIconWrapper>
-        </GoogleIconContainer>
+          </IconWrapper>
+        </IconContainer>
         <SignInText>Sign in with Google</SignInText>
       </ButtonContainer>
     );
