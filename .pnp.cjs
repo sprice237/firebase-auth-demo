@@ -7931,6 +7931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:56beb5f6d248f706b71efdb988e15011c64f9843d4ba553ae19b4568e9c2f390465c49bfafa83ed4d15692fedb84be6abe8ec68c44b2dcc9f35d6ad2b61e49b2#npm:4.29.0"],
             ["@typescript-eslint/parser", "virtual:56beb5f6d248f706b71efdb988e15011c64f9843d4ba553ae19b4568e9c2f390465c49bfafa83ed4d15692fedb84be6abe8ec68c44b2dcc9f35d6ad2b61e49b2#npm:4.29.0"],
             ["apollo-server-express", "virtual:56beb5f6d248f706b71efdb988e15011c64f9843d4ba553ae19b4568e9c2f390465c49bfafa83ed4d15692fedb84be6abe8ec68c44b2dcc9f35d6ad2b61e49b2#npm:3.1.2"],
+            ["dotenv", "npm:10.0.0"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:1fe0cffb1736c6cc5f2d8e1a16185fb1d3a376b99fffa596025b5735e28a90175e687b5f5778933f71e8dd45368d277c95594a04d2c260a0732c3af3f7d94ac3#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:1fe0cffb1736c6cc5f2d8e1a16185fb1d3a376b99fffa596025b5735e28a90175e687b5f5778933f71e8dd45368d277c95594a04d2c260a0732c3af3f7d94ac3#npm:4.0.0"],
