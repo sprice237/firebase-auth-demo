@@ -33,6 +33,7 @@
     "@graphql-codegen/typescript-operations": "2.1.0",
     "@graphql-codegen/typescript-react-apollo": "3.1.0",
     "@sprice237/eslint-config-firebase-auth-demo": "workspace:*",
+    "@sprice237/firebase-auth-demo-utils": "workspace:*",
     "@types/node": "16.7.1",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",

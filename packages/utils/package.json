@@ -1,0 +1,31 @@
+{
+  "name": "@sprice237/firebase-auth-demo-utils",
+  "packageManager": "yarn@3.0.0",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "eslint --ext=ts,js,tsx,jsx src"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "tslib": "2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "16.7.1",
+    "@typescript-eslint/eslint-plugin": "4.29.2",
+    "@typescript-eslint/parser": "4.29.2",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "typescript": "4.3.5"
+  }
+}

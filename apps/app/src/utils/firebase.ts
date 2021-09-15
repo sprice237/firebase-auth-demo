@@ -37,15 +37,50 @@ export const useCurrentUser = (): [firebase.User | null, boolean] => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    let isCancelled = false;
+
     const unsub = firebase.auth().onAuthStateChanged((newUser) => {
-      setUser(newUser);
-      setIsInitialized(true);
+      if (!isCancelled) {
+        setUser(newUser);
+        setIsInitialized(true);
+      }
     });
 
     return () => {
+      isCancelled = true;
       unsub();
     };
   }, []);
 
   return [user, isInitialized];
+};
+
+export const useCurrentUserAuthToken = (): [string | undefined, boolean] => {
+  const [user] = useCurrentUser();
+  const [token, setToken] = useState<string | undefined>(undefined);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    void (async () => {
+      if (!user) {
+        setToken(undefined);
+        setIsInitialized(true);
+      } else {
+        setIsInitialized(false);
+        const newToken = await user.getIdToken();
+        if (!isCancelled) {
+          setToken(newToken);
+          setIsInitialized(true);
+        }
+      }
+    })();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [user]);
+
+  return [token, isInitialized];
 };

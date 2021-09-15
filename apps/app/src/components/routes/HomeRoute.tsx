@@ -2,23 +2,26 @@ import React from 'react';
 import firebase from 'firebase';
 import { Route } from 'react-router-dom';
 import { RouteCmp } from '$types';
-import { useCurrentUser } from '$utils/firebase';
 import { Button } from '@material-ui/core';
+import { useMeQuery } from '@sprice237/firebase-auth-demo-gql';
 
 export const HomeRoute: RouteCmp = () => {
-  const [user] = useCurrentUser();
+  const { data } = useMeQuery();
+  const me = data?.me;
 
   const handleLogOut = async () => {
     await firebase.auth().signOut();
   };
 
-  if (!user) {
+  if (!me) {
     return null;
   }
 
   return (
     <>
-      <p>Welcome, {user.email}</p>
+      <p>
+        Welcome, {me.name} ({me.email})
+      </p>
       <Button variant="contained" color="primary" onClick={handleLogOut}>
         Log out
       </Button>

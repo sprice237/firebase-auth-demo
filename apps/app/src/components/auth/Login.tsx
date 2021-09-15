@@ -13,7 +13,6 @@ const uiConfig: firebaseui.auth.Config = {
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     'microsoft.com',
   ],
-  
 };
 
 export const Login: Cmp = () => {
