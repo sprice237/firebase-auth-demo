@@ -1,22 +1,22 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
-import { Button, Typography } from '@material-ui/core';
+import firebase from 'firebase';
+import { Typography } from '@material-ui/core';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { Cmp } from '$types';
-import { FormikTextField } from '$cmp/form/TextField';
 import { AuthWrapper } from '$cmp/styling/AuthWrapper';
 
-type LoginForm = {
-  email: string;
-  password: string;
+const uiConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    // see https://github.com/firebase/firebaseui-web#credential-helper
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    'microsoft.com',
+  ],
+  
 };
 
 export const Login: Cmp = () => {
-  const formInitialValues = { email: '', password: '' };
-
-  const handleSubmit = (values: LoginForm) => {
-    console.log(values);
-  };
-
   return (
     <AuthWrapper>
       <Typography component="h1" variant="h4" align="center" gutterBottom>
@@ -25,15 +25,7 @@ export const Login: Cmp = () => {
       <Typography component="h2" variant="body1" align="center">
         Sign in to your account to continue
       </Typography>
-      <Formik<LoginForm> initialValues={formInitialValues} onSubmit={handleSubmit}>
-        <Form>
-          <FormikTextField type="email" name="email" label="Email Address" fullWidth />
-          <FormikTextField type="password" name="password" label="Password" fullWidth />
-          <Button type="submit" fullWidth variant="contained" color="primary">
-            Sign in
-          </Button>
-        </Form>
-      </Formik>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </AuthWrapper>
   );
 };

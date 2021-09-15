@@ -9,3 +9,4 @@ export const LoginRoute: RouteCmp = () => {
 
 LoginRoute.path = '/login';
 LoginRoute.routes = [<Route exact path={LoginRoute.path} component={LoginRoute} />];
+LoginRoute.allowUnauthenticated = true;
