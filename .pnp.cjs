@@ -8201,6 +8201,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/utils/",
           "packageDependencies": [
             ["@sprice237/firebase-auth-demo-utils", "workspace:packages/utils"],
+            ["@sprice237/eslint-config-firebase-auth-demo", "workspace:packages/eslint-config"],
             ["@types/node", "npm:16.7.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:9260cc4436f03d0ff530d974b1b0bf4651b78d393c91994eb6ebf072c1935c7231df65de179bfdaae43987618b2c6cf1e9675ff6f1df68cb6c496eea18bfe9e2#npm:4.29.2"],
             ["@typescript-eslint/parser", "virtual:9260cc4436f03d0ff530d974b1b0bf4651b78d393c91994eb6ebf072c1935c7231df65de179bfdaae43987618b2c6cf1e9675ff6f1df68cb6c496eea18bfe9e2#npm:4.29.2"],

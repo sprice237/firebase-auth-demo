@@ -18,6 +18,7 @@
     "tslib": "2.3.1"
   },
   "devDependencies": {
+    "@sprice237/eslint-config-firebase-auth-demo": "workspace:*",
     "@types/node": "16.7.1",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",

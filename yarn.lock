@@ -4176,6 +4176,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sprice237/firebase-auth-demo-utils@workspace:packages/utils"
   dependencies:
+    "@sprice237/eslint-config-firebase-auth-demo": "workspace:*"
     "@types/node": 16.7.1
     "@typescript-eslint/eslint-plugin": 4.29.2
     "@typescript-eslint/parser": 4.29.2

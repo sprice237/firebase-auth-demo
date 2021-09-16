@@ -3,19 +3,19 @@ import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import type { CmpWithChildren } from '@sprice237/firebase-auth-demo/utils';
 
-export const GqlProvider: CmpWithChildren<{token?: string}> = ({ token, children }) => {
+export const GqlProvider: CmpWithChildren<{ token?: string }> = ({ token, children }) => {
   const client = useMemo(() => {
     const cache = new InMemoryCache();
 
     const httpLink = createHttpLink({
-      uri: 'http://localhost:8080/graphql'
+      uri: 'http://localhost:8080/graphql',
     });
 
     const authLink = setContext((_, { headers }) => {
       return {
         headers: {
           ...headers,
-          authorization: token ? `Bearer ${token}`: '',
+          authorization: token ? `Bearer ${token}` : '',
         },
       };
     });
@@ -24,11 +24,11 @@ export const GqlProvider: CmpWithChildren<{token?: string}> = ({ token, children
 
     const client = new ApolloClient({
       cache,
-      link
+      link,
     });
 
     return client;
   }, [token]);
-  
-  return <ApolloProvider client={client}>{children}</ApolloProvider>
-}
+
+  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+};
