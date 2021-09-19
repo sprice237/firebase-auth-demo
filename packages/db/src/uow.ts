@@ -9,7 +9,7 @@ Model.knex(knexInstance);
 export class UnitOfWork {
   readonly OrganizationsRepository = new OrganizationsRepository(this);
   readonly knexInstance = knexInstance;
-  
+
   private _transaction: Knex.Transaction | null = null;
 
   get transaction(): Knex.Transaction | null {
@@ -24,11 +24,11 @@ export class UnitOfWork {
     return this.transaction ?? this.knexInstance;
   }
 
-  async beginTransaction() {
+  async beginTransaction(): Promise<void> {
     if (this.transaction) {
-        throw new Error("A transaction already exists for this unit of work");
+      throw new Error('A transaction already exists for this unit of work');
     }
-    
+
     await new Promise<void>((resolve) => {
       this.knexInstance.transaction((trx) => {
         this.transaction = trx;
@@ -37,18 +37,18 @@ export class UnitOfWork {
     });
   }
 
-  async commitTransaction() {
+  async commitTransaction(): Promise<void> {
     if (!this.transaction) {
-        throw new Error("A transaction does not exist for this unit of work");
+      throw new Error('A transaction does not exist for this unit of work');
     }
 
     await this.transaction.commit();
     this.transaction = null;
   }
 
-  async rollbackTransaction() {
+  async rollbackTransaction(): Promise<void> {
     if (!this.transaction) {
-        throw new Error("A transaction does not exist for this unit of work");
+      throw new Error('A transaction does not exist for this unit of work');
     }
 
     await this.transaction.rollback();

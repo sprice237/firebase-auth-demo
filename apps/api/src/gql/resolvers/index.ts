@@ -5,5 +5,5 @@ import { resolvers as queryResolvers } from './query';
 export type AppResolvers = Resolvers<AppApolloContext>;
 
 export const resolvers: AppResolvers = {
-  Query: queryResolvers
+  Query: queryResolvers,
 };

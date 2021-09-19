@@ -3,7 +3,7 @@ import { OrganizationUserModel } from '$models/organizationUser';
 import type { UnitOfWork } from '$/uow';
 
 export class OrganizationsRepository {
-  constructor(private uow: UnitOfWork) { }
+  constructor(private uow: UnitOfWork) {}
 
   async getAllOrganizations(): Promise<OrganizationModel[]> {
     const organizations = await OrganizationModel.query(this.uow.queryTarget);
@@ -11,11 +11,15 @@ export class OrganizationsRepository {
   }
 
   async getOrganizationsForUser(userId: string): Promise<OrganizationModel[]> {
-    const organizationUser = OrganizationUserModel.query(this.uow.queryTarget).where('user_id', userId);
+    const organizationUser = OrganizationUserModel.query(this.uow.queryTarget).where(
+      'userId',
+      userId
+    );
 
-    const organizations = await OrganizationUserModel
-      .relatedQuery('organizations', this.uow.queryTarget)
-      .for(organizationUser) as OrganizationModel[];
+    const organizations = (await OrganizationUserModel.relatedQuery(
+      'organizations',
+      this.uow.queryTarget
+    ).for(organizationUser)) as OrganizationModel[];
 
     return organizations;
   }

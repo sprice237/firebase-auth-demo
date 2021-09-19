@@ -64,6 +64,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["$", [
+        ["link:./src::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi", {
+          "packageLocation": "./apps/api/src/",
+          "packageDependencies": [
+            ["$", "link:./src::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi"]
+          ],
+          "linkType": "SOFT",
+          "discardFromLookup": true
+        }],
         ["link:./src::locator=%40sprice237%2Ffirebase-auth-demo-db%40workspace%3Apackages%2Fdb", {
           "packageLocation": "./packages/db/src/",
           "packageDependencies": [
@@ -8269,6 +8277,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/api/",
           "packageDependencies": [
             ["@sprice237/firebase-auth-demo-api", "workspace:apps/api"],
+            ["$", "link:./src::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi"],
             ["$gql", "link:./src/gql::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi"],
             ["@graphql-tools/utils", "virtual:1d463cf5ed4e58615deb3b1b3be3c0fc922feaaea976b6646b04585b6aea151c6b4926cdc75cb357adf73d6b1dbc857167939e22cb995b1c5114c0acc81fb106#npm:8.1.1"],
             ["@sprice237/eslint-config-firebase-auth-demo", "workspace:packages/eslint-config"],
@@ -8346,6 +8355,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["$models", "link:./src/models::locator=%40sprice237%2Ffirebase-auth-demo-db%40workspace%3Apackages%2Fdb"],
             ["$repositories", "link:./src/repositories::locator=%40sprice237%2Ffirebase-auth-demo-db%40workspace%3Apackages%2Fdb"],
             ["@sprice237/eslint-config-firebase-auth-demo", "workspace:packages/eslint-config"],
+            ["@types/lodash", "npm:4.14.173"],
             ["@types/node", "npm:16.7.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:4f78c79816bb9021489b406ff7f9680de9ce653803d929f75e930ac0b4c81b1fd1d46dd24d2f8fb3a50d6295e251ed95a3e9d256703e001e7ecd806f064fd9a4#npm:4.29.2"],
             ["@typescript-eslint/parser", "virtual:4f78c79816bb9021489b406ff7f9680de9ce653803d929f75e930ac0b4c81b1fd1d46dd24d2f8fb3a50d6295e251ed95a3e9d256703e001e7ecd806f064fd9a4#npm:4.29.2"],
@@ -8354,6 +8364,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:1fe0cffb1736c6cc5f2d8e1a16185fb1d3a376b99fffa596025b5735e28a90175e687b5f5778933f71e8dd45368d277c95594a04d2c260a0732c3af3f7d94ac3#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:1fe0cffb1736c6cc5f2d8e1a16185fb1d3a376b99fffa596025b5735e28a90175e687b5f5778933f71e8dd45368d277c95594a04d2c260a0732c3af3f7d94ac3#npm:4.0.0"],
             ["knex", "virtual:4f78c79816bb9021489b406ff7f9680de9ce653803d929f75e930ac0b4c81b1fd1d46dd24d2f8fb3a50d6295e251ed95a3e9d256703e001e7ecd806f064fd9a4#npm:0.21.21"],
+            ["lodash", "npm:4.17.21"],
             ["objection", "virtual:4f78c79816bb9021489b406ff7f9680de9ce653803d929f75e930ac0b4c81b1fd1d46dd24d2f8fb3a50d6295e251ed95a3e9d256703e001e7ecd806f064fd9a4#npm:2.2.16"],
             ["pg", "virtual:4f78c79816bb9021489b406ff7f9680de9ce653803d929f75e930ac0b4c81b1fd1d46dd24d2f8fb3a50d6295e251ed95a3e9d256703e001e7ecd806f064fd9a4#npm:8.7.1"],
             ["prettier", "npm:2.3.2"],
@@ -8941,6 +8952,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/keyv", "npm:3.1.2"],
             ["@types/node", "npm:16.4.13"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.173", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.173-6fc2954d52-9e97ef5816.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.173"]
           ],
           "linkType": "HARD",
         }]

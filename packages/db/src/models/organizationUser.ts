@@ -1,24 +1,24 @@
-import { Model, ModelObject } from 'objection';
+import { Model, ModelObject, RelationMappings } from 'objection';
 import { OrganizationModel } from './organization';
 
 export class OrganizationUserModel extends Model {
-  static override tableName = 'organization_users';
+  static override tableName = 'organizationUsers';
 
-  static override get relationMappings() { 
+  static override get relationMappings(): RelationMappings {
     return {
       organizations: {
         relation: Model.BelongsToOneRelation,
         modelClass: OrganizationModel,
         join: {
-          from: 'organization_users.organization_id',
+          from: 'organizationUsers.organizationId',
           to: 'organizations.id',
-        }
-      }
+        },
+      },
     };
   }
 
-  organization_id!: string;
-  user_id!: string;
+  organizationId!: string;
+  userId!: string;
 }
 
 export type OrganizationUser = ModelObject<OrganizationUserModel>;

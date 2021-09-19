@@ -24,6 +24,7 @@
     "typescript": "4.3.5"
   },
   "dependencies": {
+    "$": "link:./src",
     "$gql": "link:./src/gql",
     "@graphql-tools/utils": "8.1.1",
     "@sprice237/firebase-auth-demo-gql": "workspace:*",

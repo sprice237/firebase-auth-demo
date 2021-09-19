@@ -8,4 +8,4 @@ export const buildApolloServer = async (): Promise<ApolloServer> => {
   const server = new ApolloServer({ typeDefs, resolvers, context });
   await server.start();
   return server;
-}
+};

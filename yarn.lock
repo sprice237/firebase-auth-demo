@@ -5,6 +5,12 @@ __metadata:
   version: 4
   cacheKey: 8
 
+"$@link:./src::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi":
+  version: 0.0.0-use.local
+  resolution: "$@link:./src::locator=%40sprice237%2Ffirebase-auth-demo-api%40workspace%3Aapps%2Fapi"
+  languageName: node
+  linkType: soft
+
 "$@link:./src::locator=%40sprice237%2Ffirebase-auth-demo-db%40workspace%3Apackages%2Fdb":
   version: 0.0.0-use.local
   resolution: "$@link:./src::locator=%40sprice237%2Ffirebase-auth-demo-db%40workspace%3Apackages%2Fdb"
@@ -4177,6 +4183,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sprice237/firebase-auth-demo-api@workspace:apps/api"
   dependencies:
+    $: "link:./src"
     $gql: "link:./src/gql"
     "@graphql-tools/utils": 8.1.1
     "@sprice237/eslint-config-firebase-auth-demo": "workspace:*"
@@ -4250,6 +4257,7 @@ __metadata:
     $models: "link:./src/models"
     $repositories: "link:./src/repositories"
     "@sprice237/eslint-config-firebase-auth-demo": "workspace:*"
+    "@types/lodash": 4.14.173
     "@types/node": 16.7.1
     "@typescript-eslint/eslint-plugin": 4.29.2
     "@typescript-eslint/parser": 4.29.2
@@ -4258,6 +4266,7 @@ __metadata:
     eslint-config-prettier: 8.3.0
     eslint-plugin-prettier: 4.0.0
     knex: 0.21.21
+    lodash: 4.17.21
     objection: 2.2.16
     pg: 8.7.1
     prettier: 2.3.2
@@ -4777,6 +4786,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 769e462ae9d663f1c2b65f07f621d52cfd02b8289357ac9f8af353243a7356a54f1568d4cbef13b90de367aaeb768446b324b792b6c5ff958d0b34ed68b75df2
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:4.14.173":
+  version: 4.14.173
+  resolution: "@types/lodash@npm:4.14.173"
+  checksum: 9e97ef5816299e5470db1cb32a93e981af60f74f18a35d045ed4caf224a065df96bfae6e444ec96aa392fc01258592b965d840ae042eef77ef719a578c7daef8
   languageName: node
   linkType: hard
 

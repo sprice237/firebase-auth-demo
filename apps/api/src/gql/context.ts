@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { auth } from 'firebase-admin';
-import { decodeFirebaseToken } from '../firebase';
+import { decodeFirebaseToken } from '$/firebase';
 
 export type AppApolloContext = {
   firebaseToken: auth.DecodedIdToken | null;
