@@ -17,6 +17,30 @@ export type Scalars = {
   Float: number;
 };
 
+export type CreateOrganizationInput = {
+  name: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename: 'Mutation';
+  createOrganization: Organization;
+  updateOrganization: Organization;
+  deleteOrganization: Organization;
+};
+
+export type MutationCreateOrganizationArgs = {
+  input: CreateOrganizationInput;
+};
+
+export type MutationUpdateOrganizationArgs = {
+  organizationId: Scalars['ID'];
+  input: UpdateOrganizationInput;
+};
+
+export type MutationDeleteOrganizationArgs = {
+  organizationId: Scalars['ID'];
+};
+
 export type Organization = {
   __typename: 'Organization';
   id: Scalars['ID'];
@@ -32,6 +56,10 @@ export type Query = {
 
 export type QueryOrganizationsForUserArgs = {
   userId: Scalars['ID'];
+};
+
+export type UpdateOrganizationInput = {
+  name: Scalars['String'];
 };
 
 export type User = {
@@ -179,22 +207,52 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Organization: ResolverTypeWrapper<Organization>;
-  ID: ResolverTypeWrapper<Scalars['ID']>;
+  CreateOrganizationInput: CreateOrganizationInput;
   String: ResolverTypeWrapper<Scalars['String']>;
+  Mutation: ResolverTypeWrapper<{}>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
+  Organization: ResolverTypeWrapper<Organization>;
   Query: ResolverTypeWrapper<{}>;
+  UpdateOrganizationInput: UpdateOrganizationInput;
   User: ResolverTypeWrapper<User>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Organization: Organization;
-  ID: Scalars['ID'];
+  CreateOrganizationInput: CreateOrganizationInput;
   String: Scalars['String'];
+  Mutation: {};
+  ID: Scalars['ID'];
+  Organization: Organization;
   Query: {};
+  UpdateOrganizationInput: UpdateOrganizationInput;
   User: User;
   Boolean: Scalars['Boolean'];
+};
+
+export type MutationResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']
+> = {
+  createOrganization?: Resolver<
+    ResolversTypes['Organization'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationCreateOrganizationArgs, 'input'>
+  >;
+  updateOrganization?: Resolver<
+    ResolversTypes['Organization'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationUpdateOrganizationArgs, 'organizationId' | 'input'>
+  >;
+  deleteOrganization?: Resolver<
+    ResolversTypes['Organization'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationDeleteOrganizationArgs, 'organizationId'>
+  >;
 };
 
 export type OrganizationResolvers<
@@ -231,6 +289,7 @@ export type UserResolvers<
 };
 
 export type Resolvers<ContextType = any> = {
+  Mutation?: MutationResolvers<ContextType>;
   Organization?: OrganizationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;

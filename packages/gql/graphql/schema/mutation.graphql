@@ -1,0 +1,5 @@
+type Mutation {
+  createOrganization(input: CreateOrganizationInput!): Organization!
+  updateOrganization(organizationId: ID!, input: UpdateOrganizationInput!): Organization!
+  deleteOrganization(organizationId: ID!): Organization!
+}
