@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import type { CmpWithChildren } from '@sprice237/firebase-auth-demo/utils';
+import type { CmpWithChildren } from '@sprice237/firebase-auth-demo-utils';
 
 export const GqlProvider: CmpWithChildren<{ token?: string }> = ({ token, children }) => {
   const client = useMemo(() => {

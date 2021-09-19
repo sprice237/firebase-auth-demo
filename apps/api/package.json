@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@sprice237/eslint-config-firebase-auth-demo": "workspace:*",
+    "@sprice237/firebase-auth-demo-db": "workspace:*",
     "@types/express": "4.17.13",
     "@types/node": "16.4.13",
     "@typescript-eslint/eslint-plugin": "4.29.0",
@@ -23,6 +24,7 @@
     "typescript": "4.3.5"
   },
   "dependencies": {
+    "$gql": "link:./src/gql",
     "@graphql-tools/utils": "8.1.1",
     "@sprice237/firebase-auth-demo-gql": "workspace:*",
     "apollo-server-express": "3.1.2",

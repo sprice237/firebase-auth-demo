@@ -1,3 +1,5 @@
 type Query {
-    me: User!
+  me: User!
+  organizations: [Organization!]!
+  organizationsForUser(userId: ID!): [Organization!]!
 }
