@@ -6,12 +6,14 @@ import { AppThemeProvider } from '$theme';
 import { Cmp } from '$types';
 import { useCurrentUserAuthToken } from '$utils/firebase';
 import { AppRouter } from './routes/AppRouter';
+import { LoadingModal } from './utils/LoadingModal';
 
 export const App: Cmp = () => {
   const [userToken, isInitialized] = useCurrentUserAuthToken();
 
   return (
     <GqlProvider token={userToken}>
+      {!isInitialized && <LoadingModal />}
       {isInitialized && (
         <Router>
           <AppThemeProvider>
