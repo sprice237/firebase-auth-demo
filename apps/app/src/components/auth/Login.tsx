@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
-import { Typography } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { Cmp } from '$types';
 import { AuthWrapper } from '$cmp/styling/AuthWrapper';

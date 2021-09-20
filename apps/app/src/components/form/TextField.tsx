@@ -1,8 +1,8 @@
 import React from 'react';
 import { useField } from 'formik';
 import styled from 'styled-components';
-import { TextField as MuiTextField, TextFieldProps as MuiTextFieldProps } from '@material-ui/core';
-import { spacing } from '@material-ui/system';
+import MuiTextField, {TextFieldProps as MuiTextFieldProps} from '@mui/material/TextField';
+import { spacing } from '@mui/system';
 import { Cmp } from '$types';
 
 const StyledTextField = styled(MuiTextField)<{ my?: number }>(spacing);

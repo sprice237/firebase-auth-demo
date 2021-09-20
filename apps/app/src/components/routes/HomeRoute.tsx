@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import { Route } from 'react-router-dom';
 import { RouteCmp } from '$types';
-import { Button } from '@material-ui/core';
+import Button from '@mui/material/Button';
 import { useMeQuery } from '@sprice237/firebase-auth-demo-gql';
 
 export const HomeRoute: RouteCmp = () => {

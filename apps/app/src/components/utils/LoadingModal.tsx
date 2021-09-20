@@ -1,5 +1,5 @@
 import { Cmp } from '$types';
-import { Modal } from '@material-ui/core';
+import Modal from '@mui/material/Modal';
 import { CenterContent } from '$cmp/styling/CenterContent';
 
 export const LoadingModal: Cmp = () => {

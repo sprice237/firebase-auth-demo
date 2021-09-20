@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Alert as MuiAlert } from '@material-ui/lab';
-import { spacing } from '@material-ui/system';
+import MuiAlert from '@mui/material/Alert';
+import { spacing } from '@mui/system';
 import { CmpReturn } from '$types';
 
 const Alert = styled(MuiAlert)(spacing);
