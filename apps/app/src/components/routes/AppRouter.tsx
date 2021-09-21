@@ -3,9 +3,10 @@ import { Redirect, Switch } from 'react-router-dom';
 import { Cmp, RouteCmp } from '$types';
 import { HomeRoute } from './HomeRoute';
 import { LoginRoute } from './LoginRoute';
+import { OrganizationsListRoute } from './organizations/OrganizationsListRoute';
 import { useCurrentUser } from '$utils/firebase';
 
-const routes: RouteCmp[] = [LoginRoute, HomeRoute];
+const routes: RouteCmp[] = [LoginRoute, HomeRoute, OrganizationsListRoute];
 
 export const AppRouter: Cmp = () => {
   const [user, isFirebaseAuthInitialized] = useCurrentUser();

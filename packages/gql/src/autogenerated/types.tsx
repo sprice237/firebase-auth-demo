@@ -69,6 +69,8 @@ export type User = {
   firebaseUid: Scalars['String'];
 };
 
+export type OrganizationFragment = { __typename: 'Organization'; id: string; name: string };
+
 export type UserFragment = { __typename: 'User'; name: string; email: string; firebaseUid: string };
 
 export type MeQueryVariables = Exact<{ [key: string]: never }>;
@@ -78,6 +80,19 @@ export type MeQuery = {
   me: { __typename: 'User'; name: string; email: string; firebaseUid: string };
 };
 
+export type OrganizationsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type OrganizationsQuery = {
+  __typename: 'Query';
+  organizations: Array<{ __typename: 'Organization'; id: string; name: string }>;
+};
+
+export const OrganizationFragmentDoc = gql`
+  fragment Organization on Organization {
+    id
+    name
+  }
+`;
 export const UserFragmentDoc = gql`
   fragment User on User {
     name
@@ -122,6 +137,54 @@ export function useMeLazyQuery(
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
+export const OrganizationsDocument = gql`
+  query Organizations {
+    organizations {
+      ...Organization
+    }
+  }
+  ${OrganizationFragmentDoc}
+`;
+
+/**
+ * __useOrganizationsQuery__
+ *
+ * To run a query within a React component, call `useOrganizationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOrganizationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrganizationsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useOrganizationsQuery(
+  baseOptions?: Apollo.QueryHookOptions<OrganizationsQuery, OrganizationsQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<OrganizationsQuery, OrganizationsQueryVariables>(
+    OrganizationsDocument,
+    options
+  );
+}
+export function useOrganizationsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<OrganizationsQuery, OrganizationsQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<OrganizationsQuery, OrganizationsQueryVariables>(
+    OrganizationsDocument,
+    options
+  );
+}
+export type OrganizationsQueryHookResult = ReturnType<typeof useOrganizationsQuery>;
+export type OrganizationsLazyQueryHookResult = ReturnType<typeof useOrganizationsLazyQuery>;
+export type OrganizationsQueryResult = Apollo.QueryResult<
+  OrganizationsQuery,
+  OrganizationsQueryVariables
+>;
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 

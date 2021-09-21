@@ -5,7 +5,6 @@ import { CmpWithChildren } from '$types';
 export const AuthBackdrop = styled('div')`
   height: 100%;
   width: 100%;
-  background-color: #f7f9fc;
   display: flex;
   align-items: center;
   justify-content: center;

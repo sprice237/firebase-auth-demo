@@ -3,6 +3,8 @@ import firebase from 'firebase';
 import { Route } from 'react-router-dom';
 import { RouteCmp } from '$types';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import { useMeQuery } from '@sprice237/firebase-auth-demo-gql';
 
 export const HomeRoute: RouteCmp = () => {
@@ -18,14 +20,16 @@ export const HomeRoute: RouteCmp = () => {
   }
 
   return (
-    <>
-      <p>
-        Welcome, {me.name} ({me.email})
-      </p>
-      <Button variant="contained" color="primary" onClick={handleLogOut}>
-        Log out
-      </Button>
-    </>
+    <Card style={{ margin: '10px' }}>
+      <CardContent>
+        <p>
+          Welcome, {me.name} ({me.email})
+        </p>
+        <Button variant="contained" color="primary" onClick={handleLogOut}>
+          Log out
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 
