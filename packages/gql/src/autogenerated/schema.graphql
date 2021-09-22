@@ -16,6 +16,7 @@ type Organization {
 type Query {
   me: User!
   organizations: [Organization!]!
+  organizationById(organizationId: ID!): Organization
   organizationsForUser(userId: ID!): [Organization!]!
 }
 

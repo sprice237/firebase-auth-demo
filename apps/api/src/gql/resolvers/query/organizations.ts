@@ -23,3 +23,15 @@ export const organizationsForUser: QueryResolvers['organizationsForUser'] = asyn
   }));
   return gqlOrganizations;
 };
+
+export const organizationById: QueryResolvers['organizationById'] = async (_source, args) => {
+  const uow = new UnitOfWork();
+  const organization = await uow.OrganizationsRepository.getOrganizationById(args.organizationId);
+  const gqlOrganization = organization
+    ? {
+      ...organization.toJSON(),
+      __typename: 'Organization' as const,
+    }
+    : null;
+  return gqlOrganization;
+};

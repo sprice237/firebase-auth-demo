@@ -51,7 +51,12 @@ export type Query = {
   __typename: 'Query';
   me: User;
   organizations: Array<Organization>;
+  organizationById?: Maybe<Organization>;
   organizationsForUser: Array<Organization>;
+};
+
+export type QueryOrganizationByIdArgs = {
+  organizationId: Scalars['ID'];
 };
 
 export type QueryOrganizationsForUserArgs = {
@@ -73,11 +78,30 @@ export type OrganizationFragment = { __typename: 'Organization'; id: string; nam
 
 export type UserFragment = { __typename: 'User'; name: string; email: string; firebaseUid: string };
 
+export type UpdateOrganizationMutationVariables = Exact<{
+  organizationId: Scalars['ID'];
+  input: UpdateOrganizationInput;
+}>;
+
+export type UpdateOrganizationMutation = {
+  __typename: 'Mutation';
+  updateOrganization: { __typename: 'Organization'; id: string; name: string };
+};
+
 export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type MeQuery = {
   __typename: 'Query';
   me: { __typename: 'User'; name: string; email: string; firebaseUid: string };
+};
+
+export type OrganizationByIdQueryVariables = Exact<{
+  organizationId: Scalars['ID'];
+}>;
+
+export type OrganizationByIdQuery = {
+  __typename: 'Query';
+  organizationById?: Maybe<{ __typename: 'Organization'; id: string; name: string }>;
 };
 
 export type OrganizationsQueryVariables = Exact<{ [key: string]: never }>;
@@ -100,6 +124,55 @@ export const UserFragmentDoc = gql`
     firebaseUid
   }
 `;
+export const UpdateOrganizationDocument = gql`
+  mutation UpdateOrganization($organizationId: ID!, $input: UpdateOrganizationInput!) {
+    updateOrganization(organizationId: $organizationId, input: $input) {
+      id
+      name
+    }
+  }
+`;
+export type UpdateOrganizationMutationFn = Apollo.MutationFunction<
+  UpdateOrganizationMutation,
+  UpdateOrganizationMutationVariables
+>;
+
+/**
+ * __useUpdateOrganizationMutation__
+ *
+ * To run a mutation, you first call `useUpdateOrganizationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateOrganizationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateOrganizationMutation, { data, loading, error }] = useUpdateOrganizationMutation({
+ *   variables: {
+ *      organizationId: // value for 'organizationId'
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateOrganizationMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateOrganizationMutation,
+    UpdateOrganizationMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<UpdateOrganizationMutation, UpdateOrganizationMutationVariables>(
+    UpdateOrganizationDocument,
+    options
+  );
+}
+export type UpdateOrganizationMutationHookResult = ReturnType<typeof useUpdateOrganizationMutation>;
+export type UpdateOrganizationMutationResult = Apollo.MutationResult<UpdateOrganizationMutation>;
+export type UpdateOrganizationMutationOptions = Apollo.BaseMutationOptions<
+  UpdateOrganizationMutation,
+  UpdateOrganizationMutationVariables
+>;
 export const MeDocument = gql`
   query Me {
     me {
@@ -137,6 +210,55 @@ export function useMeLazyQuery(
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
+export const OrganizationByIdDocument = gql`
+  query OrganizationById($organizationId: ID!) {
+    organizationById(organizationId: $organizationId) {
+      ...Organization
+    }
+  }
+  ${OrganizationFragmentDoc}
+`;
+
+/**
+ * __useOrganizationByIdQuery__
+ *
+ * To run a query within a React component, call `useOrganizationByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOrganizationByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrganizationByIdQuery({
+ *   variables: {
+ *      organizationId: // value for 'organizationId'
+ *   },
+ * });
+ */
+export function useOrganizationByIdQuery(
+  baseOptions: Apollo.QueryHookOptions<OrganizationByIdQuery, OrganizationByIdQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<OrganizationByIdQuery, OrganizationByIdQueryVariables>(
+    OrganizationByIdDocument,
+    options
+  );
+}
+export function useOrganizationByIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<OrganizationByIdQuery, OrganizationByIdQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<OrganizationByIdQuery, OrganizationByIdQueryVariables>(
+    OrganizationByIdDocument,
+    options
+  );
+}
+export type OrganizationByIdQueryHookResult = ReturnType<typeof useOrganizationByIdQuery>;
+export type OrganizationByIdLazyQueryHookResult = ReturnType<typeof useOrganizationByIdLazyQuery>;
+export type OrganizationByIdQueryResult = Apollo.QueryResult<
+  OrganizationByIdQuery,
+  OrganizationByIdQueryVariables
+>;
 export const OrganizationsDocument = gql`
   query Organizations {
     organizations {
@@ -333,6 +455,12 @@ export type QueryResolvers<
 > = {
   me?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   organizations?: Resolver<Array<ResolversTypes['Organization']>, ParentType, ContextType>;
+  organizationById?: Resolver<
+    Maybe<ResolversTypes['Organization']>,
+    ParentType,
+    ContextType,
+    RequireFields<QueryOrganizationByIdArgs, 'organizationId'>
+  >;
   organizationsForUser?: Resolver<
     Array<ResolversTypes['Organization']>,
     ParentType,

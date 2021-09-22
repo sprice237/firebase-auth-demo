@@ -24,6 +24,12 @@ export class OrganizationsRepository {
     return organizations;
   }
 
+  async getOrganizationById(organizationId: string): Promise<OrganizationModel | null> {
+    const organization = await OrganizationModel.query(this.uow.queryTarget)
+      .findById(organizationId);
+    return organization;
+  }
+
   async createOrganization(input: Omit<Organization, 'id'>): Promise<OrganizationModel> {
     const organization = await OrganizationModel.query(this.uow.queryTarget)
       .insert(input)
