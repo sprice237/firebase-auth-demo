@@ -2999,7 +2999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:2.1.0, @graphql-codegen/typescript@npm:^2.1.0":
+"@graphql-codegen/typescript@npm:2.1.0":
   version: 2.1.0
   resolution: "@graphql-codegen/typescript@npm:2.1.0"
   dependencies:
@@ -3013,7 +3013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:^2.2.2":
+"@graphql-codegen/typescript@npm:^2.1.0, @graphql-codegen/typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "@graphql-codegen/typescript@npm:2.2.2"
   dependencies:

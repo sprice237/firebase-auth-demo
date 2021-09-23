@@ -5,8 +5,10 @@ import { HomeRoute } from './HomeRoute';
 import { LoginRoute } from './LoginRoute';
 import { OrganizationsListRoute } from './organizations/OrganizationsListRoute';
 import { useCurrentUser } from '$utils/firebase';
+import { OrganizationCreateRoute } from './organizations/OrganizationCreateRoute';
+import { OrganizationEditRoute } from './organizations/OrganizationEditRoute';
 
-const routes: RouteCmp[] = [LoginRoute, HomeRoute, OrganizationsListRoute];
+const routes: RouteCmp[] = [LoginRoute, HomeRoute, OrganizationsListRoute, OrganizationCreateRoute, OrganizationEditRoute];
 
 export const AppRouter: Cmp = () => {
   const [user, isFirebaseAuthInitialized] = useCurrentUser();

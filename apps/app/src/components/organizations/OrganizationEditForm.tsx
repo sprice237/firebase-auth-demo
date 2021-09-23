@@ -13,16 +13,16 @@ import { Cmp } from '$types';
 import { FormikTextField } from '$cmp/form/TextField';
 import { LoadingModal } from '$cmp/utils/LoadingModal';
 
-export type OrganizationEditModalProps = {
+export type OrganizationEditFormProps = {
   organizationId: string;
   onClose: () => void;
 };
 
-type UpdateOrganizationForm = {
+type OrganizationEditFormType = {
   name: string;
 };
 
-export const OrganizationEditModal: Cmp<OrganizationEditModalProps> = ({
+export const OrganizationEditForm: Cmp<OrganizationEditFormProps> = ({
   organizationId,
   onClose,
 }) => {
@@ -41,7 +41,7 @@ export const OrganizationEditModal: Cmp<OrganizationEditModalProps> = ({
     [organization]
   );
 
-  const handleSubmit = (values: UpdateOrganizationForm) => {
+  const handleSubmit = (values: OrganizationEditFormType) => {
     updateOrganization({
       variables: {
         organizationId,
@@ -68,20 +68,18 @@ export const OrganizationEditModal: Cmp<OrganizationEditModalProps> = ({
     <>
       {(loading || mutationLoading) && <LoadingModal />}
       {initialValues && (
-        <Dialog open>
-          <Formik<UpdateOrganizationForm> initialValues={initialValues} onSubmit={handleSubmit}>
-            <Form>
-              <DialogTitle>Edit organization</DialogTitle>
-              <DialogContent>
-                <FormikTextField name="name" label="Name" variant="standard" />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={onClose}>Cancel</Button>
-                <Button type="submit">Submit</Button>
-              </DialogActions>
-            </Form>
-          </Formik>
-        </Dialog>
+        <Formik<OrganizationEditFormType> initialValues={initialValues} onSubmit={handleSubmit}>
+          <Form>
+            <DialogTitle>Edit organization</DialogTitle>
+            <DialogContent>
+              <FormikTextField name="name" label="Name" variant="standard" />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={onClose}>Cancel</Button>
+              <Button type="submit">Submit</Button>
+            </DialogActions>
+          </Form>
+        </Formik>
       )}
     </>
   );
