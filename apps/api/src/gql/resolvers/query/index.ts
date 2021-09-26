@@ -1,10 +1,8 @@
-import { AppResolvers } from '$gql/resolvers';
-import * as meResolvers from './me';
-import * as organizationResolvers from './organizations';
+import { AppResolversMap } from '$gql/resolvers';
+import { meResolvers } from './me';
+import { organizationResolvers } from './organizations';
 
-export type QueryResolvers = Exclude<AppResolvers['Query'], undefined>;
-
-export const resolvers: QueryResolvers = {
+export const resolvers: AppResolversMap['Query'] = {
   ...meResolvers,
   ...organizationResolvers,
 };
