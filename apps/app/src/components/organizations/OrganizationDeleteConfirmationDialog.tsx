@@ -5,7 +5,7 @@ import {
 } from '@sprice237/firebase-auth-demo-gql';
 import { ConfirmationDialog } from '$cmp/dialogs/ConfirmationDialog';
 import { Cmp } from '$types';
-import { LoadingModal } from '../utils/LoadingModal';
+import { LoadingModal } from '$utils/LoadingModal';
 
 export type OrganizationDeleteConfirmationDialogProps = {
   organizationId: string;
