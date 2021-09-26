@@ -4,7 +4,10 @@ import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { OrganizationsDocument, useCreateOrganizationMutation } from '@sprice237/firebase-auth-demo-gql';
+import {
+  OrganizationsDocument,
+  useCreateOrganizationMutation,
+} from '@sprice237/firebase-auth-demo-gql';
 import { Cmp } from '$types';
 import { FormikTextField } from '$cmp/form/TextField';
 import { LoadingModal } from '$cmp/utils/LoadingModal';
@@ -18,17 +21,18 @@ type OrganizationCreateFormType = {
 };
 
 export const OrganizationCreateForm: Cmp<OrganizationCreateFormProps> = ({ onClose }) => {
-  const [createOrganization, { loading: createOrganizationLoading, data: createOrganizationResult }] =
-    useCreateOrganizationMutation({
-      refetchQueries: [{
-        query: OrganizationsDocument
-      }]
-    });
+  const [
+    createOrganization,
+    { loading: createOrganizationLoading, data: createOrganizationResult },
+  ] = useCreateOrganizationMutation({
+    refetchQueries: [
+      {
+        query: OrganizationsDocument,
+      },
+    ],
+  });
 
-  const initialValues = useMemo(
-    () => ({name: ''}),
-    []
-  );
+  const initialValues = useMemo(() => ({ name: '' }), []);
 
   const handleSubmit = (values: OrganizationCreateFormType) => {
     createOrganization({
@@ -48,7 +52,7 @@ export const OrganizationCreateForm: Cmp<OrganizationCreateFormProps> = ({ onClo
 
   return (
     <>
-      {(createOrganizationLoading) && <LoadingModal />}
+      {createOrganizationLoading && <LoadingModal />}
       {initialValues && (
         <Formik<OrganizationCreateFormType> initialValues={initialValues} onSubmit={handleSubmit}>
           <Form>

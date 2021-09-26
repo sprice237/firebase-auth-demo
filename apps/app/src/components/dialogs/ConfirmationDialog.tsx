@@ -14,25 +14,23 @@ export type ConfirmationDialogProps = {
   onCancel: () => void;
 };
 
-export const ConfirmationDialog: Cmp<ConfirmationDialogProps> = ({ title, message, onConfirm, onCancel }) => {
+export const ConfirmationDialog: Cmp<ConfirmationDialogProps> = ({
+  title,
+  message,
+  onConfirm,
+  onCancel,
+}) => {
   return (
-    <Dialog
-      open
-      onClose={onCancel}
-    >
-      {title && (
-        <DialogTitle>
-          {title}
-        </DialogTitle>
-      )}
+    <Dialog open onClose={onCancel}>
+      {title && <DialogTitle>{title}</DialogTitle>}
       <DialogContent>
-        <DialogContentText>
-          {message}
-        </DialogContentText>
+        <DialogContentText>{message}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={onCancel}>Cancel</Button>
-        <Button onClick={onConfirm} autoFocus>Confirm</Button>
+        <Button onClick={onConfirm} autoFocus>
+          Confirm
+        </Button>
       </DialogActions>
     </Dialog>
   );

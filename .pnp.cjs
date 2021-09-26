@@ -8759,7 +8759,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/x-data-grid", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.0"],
             ["@sprice237/eslint-config-firebase-auth-demo", "workspace:packages/eslint-config"],
             ["@sprice237/firebase-auth-demo-gql", "workspace:packages/gql"],
+            ["@types/lodash", "npm:4.14.174"],
             ["@types/node", "npm:16.7.4"],
+            ["@types/qs", "npm:6.9.7"],
             ["@types/react", "npm:17.0.19"],
             ["@types/react-dom", "npm:17.0.9"],
             ["@types/react-router-dom", "npm:5.1.8"],
@@ -8772,8 +8774,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:1fe0cffb1736c6cc5f2d8e1a16185fb1d3a376b99fffa596025b5735e28a90175e687b5f5778933f71e8dd45368d277c95594a04d2c260a0732c3af3f7d94ac3#npm:4.0.0"],
             ["firebase", "npm:8.10.0"],
             ["formik", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:2.2.9"],
+            ["lodash", "npm:4.17.21"],
             ["polished", "npm:4.1.3"],
             ["prettier", "npm:2.3.2"],
+            ["qs", "npm:6.10.1"],
             ["raw-loader", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:4.0.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:73e6ef94d3aae8bb8672941ae107372c2d505d1c789999c4ad2ff588f817c5d810e3fc041c88169a13d7a93bb32e93e35b411f32f7e12cb9c8509750309ca8bf#npm:17.0.2"],
@@ -9404,6 +9408,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.173-6fc2954d52-9e97ef5816.zip/node_modules/@types/lodash/",
           "packageDependencies": [
             ["@types/lodash", "npm:4.14.173"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:4.14.174", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.174-8fdeaf8697-8c1a7daf6d.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.174"]
           ],
           "linkType": "HARD",
         }]
@@ -24463,6 +24474,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["qs", [
+        ["npm:6.10.1", {
+          "packageLocation": "./.yarn/cache/qs-npm-6.10.1-12d3ab7795-00e390dbf9.zip/node_modules/qs/",
+          "packageDependencies": [
+            ["qs", "npm:6.10.1"],
+            ["side-channel", "npm:1.0.4"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:6.7.0", {
           "packageLocation": "./.yarn/cache/qs-npm-6.7.0-15161a344c-dfd5f6adef.zip/node_modules/qs/",
           "packageDependencies": [

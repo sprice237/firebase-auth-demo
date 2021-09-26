@@ -45,12 +45,13 @@ export const OrganizationsList: Cmp = () => {
 
   return (
     <>
-      {organizationIdToDelete && <OrganizationDeleteConfirmationDialog organizationId={organizationIdToDelete} onClose={() => setOrganizationIdToDelete(undefined)} />}
-      <Button
-        component={Link}
-        to={OrganizationCreateRoute.path}
-        variant="contained"
-      >
+      {organizationIdToDelete && (
+        <OrganizationDeleteConfirmationDialog
+          organizationId={organizationIdToDelete}
+          onClose={() => setOrganizationIdToDelete(undefined)}
+        />
+      )}
+      <Button component={Link} to={OrganizationCreateRoute.path} variant="contained">
         Create
       </Button>
       <DataGrid columns={columns} rows={organizations ?? []} />

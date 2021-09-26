@@ -6,7 +6,7 @@ import { AppContentWrapper } from '$cmp/styling/AppContentWrapper';
 import { StyleWrapper } from '$cmp/styling/StyleWrapper';
 import { Cmp } from '$types';
 import { useCurrentUser, useCurrentUserAuthToken } from '$utils/firebase';
-import { AppRouter } from './routes/AppRouter';
+import { AppRouter } from '$utils/routing';
 import { LoadingModal } from './utils/LoadingModal';
 
 export const App: Cmp = () => {

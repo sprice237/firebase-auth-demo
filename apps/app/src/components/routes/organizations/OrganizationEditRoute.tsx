@@ -4,14 +4,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { OrganizationEditForm } from '$cmp/organizations/OrganizationEditForm';
 import { RouteCmp } from '$types';
-import { OrganizationsListRoute } from './OrganizationsListRoute';
+import { generatePath, Routes, RouteParameters } from '$utils/routing';
 
 export const OrganizationEditRoute: RouteCmp = () => {
   const history = useHistory();
-  const { organizationId } = useParams<{ organizationId: string}>();
+  const { organizationId } = useParams<RouteParameters[Routes.OrganizationEdit]['path']>();
 
   const onClose = (): void => {
-    history.push(OrganizationsListRoute.path)
+    history.push(generatePath(Routes.OrganizationsList, {}, {}));
   };
 
   return (
